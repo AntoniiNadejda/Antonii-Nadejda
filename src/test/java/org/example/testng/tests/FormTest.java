@@ -14,6 +14,15 @@ public class FormTest {
 
     public static String First_Name = "Nadejda";
     public static String Last_Name = "Antonii";
+    public static String email = "anntoniinadya@gmail.com";
+    public static String gender = "Female";
+    public static String phone = "0611305430";
+    public static String date = "20 Oct 2026";
+    public static String subject = "Arts";
+    public static String hobby = "Sports";
+    public static String state = "Rajasthan";
+    public static String city = "Jaipur";
+
 
     @BeforeTest
     public void beforeTest(){
@@ -28,6 +37,18 @@ public class FormTest {
         DemoqaForm form = new DemoqaForm(driver);
         form.setFirstName(First_Name);
         form.setLastName(Last_Name);
+        form.setEmail(email);
+        form.setGender(gender);
+        form.setPhone(phone);
+        form.setDate(date);
+        form.setSubject(subject);
+        form.setHobby(hobby);
+        form.setState(state);
+        form.setCity(city);
+
+
+
+
     }
 
     @AfterTest
