@@ -32,7 +32,7 @@ public class FormTest {
 
     @BeforeTest
     public void beforeTest(){
-        driver = SeleniumDrivers.getAutoDriver();
+        driver = SeleniumDrivers.getRemoteDriver();
     }
 
     @Test
