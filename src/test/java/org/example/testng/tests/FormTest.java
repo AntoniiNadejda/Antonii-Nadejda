@@ -1,8 +1,12 @@
 package org.example.testng.tests;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.pom.DemoqaForm;
+import org.example.pom.newSubmitForm;
 import org.example.utils.SeleniumDrivers;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -11,6 +15,8 @@ public class FormTest {
 
     public static WebDriver driver;
     public static String URL = "https://demoqa.com/automation-practice-form";
+
+    private static final Logger logger = LogManager.getLogger(FormTest.class);
 
     public static String First_Name = "Nadejda";
     public static String Last_Name = "Antonii";
@@ -26,12 +32,12 @@ public class FormTest {
 
     @BeforeTest
     public void beforeTest(){
-        driver = SeleniumDrivers.getAutoDriver();
+        driver = SeleniumDrivers.getRemoteDriver();
     }
 
     @Test
     public void formTest(){
-        System.out.println("Start");
+        logger.info("Start Test");
         driver.get(URL);
         driver.manage().window().maximize();
         DemoqaForm form = new DemoqaForm(driver);
@@ -46,9 +52,49 @@ public class FormTest {
         form.setState(state);
         form.setCity(city);
 
+        newSubmitForm submitForm = new newSubmitForm(driver);
 
+        String actualFirstName = submitForm.getFirstName();
+        String expectedFirstName = First_Name;
+        Assert.assertEquals(actualFirstName, expectedFirstName);
 
+        String actualLastName = submitForm.getLastName();
+        String expectedLastName = Last_Name;
+        Assert.assertEquals(actualLastName, expectedLastName);
 
+        String actualEmail = submitForm.getStudentEmail();
+        String expectedEmail = email;
+        Assert.assertEquals(actualEmail, expectedEmail);
+
+        String actualGender = submitForm.getGender();
+        String expectedGender = gender;
+        Assert.assertEquals(actualGender, expectedGender);
+
+        String actualPhone = submitForm.getPhone();
+        String expectedPhone = phone;
+        Assert.assertEquals(actualPhone, expectedPhone);
+
+        String actualDate = submitForm.getDate();
+        String expectedDate = date;
+        Assert.assertEquals(actualDate, expectedDate);
+
+        String actualSubjects = submitForm.getSubjects();
+        String expectedSubjects = subject;
+        Assert.assertEquals(actualSubjects, expectedSubjects);
+
+        String actualHobbies = submitForm.getHobbies();
+        String expectedHobbies = hobby ;
+        Assert.assertEquals(actualHobbies, expectedHobbies);
+
+        String actualState = submitForm.getState();
+        String expectedState = state;
+        Assert.assertEquals(actualState, expectedState);
+
+        String actualCity = submitForm.getCity();
+        String expectedCity = city;
+        Assert.assertEquals(actualCity, expectedCity);
+
+        logger.info("Finish Test");
     }
 
     @AfterTest

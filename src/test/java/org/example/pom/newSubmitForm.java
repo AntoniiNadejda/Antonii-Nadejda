@@ -14,7 +14,44 @@ public class newSubmitForm {
     public String getValue(String nameParam){
         return driver.findElement(By.xpath("//table//tr//td[text()='"+nameParam+"']/../td[2]")).getText();
     }
-    public String getStudentName(){
-        return getValue("Student Name");
+    public String getFirstName() {
+        return getValue("Student First Name");
+    }
+
+    public String getLastName() {
+        return getValue("Student Last Name");
+    }
+
+    public String getStudentEmail() {
+        return getValue("Student Email");
+    }
+
+    public String getGender() {
+        return getValue("Gender");
+    }
+
+    public String getPhone() {
+        return getValue("Mobile");
+    }
+
+    public String getDate() {
+        return getValue("Date of Birth");
+    }
+
+    public String getSubjects() {
+        return getValue("Subjects");
+    }
+
+    public String getHobbies() {
+        return getValue("Hobbies");
+    }
+
+
+    public String getState() {
+        return getValue("Address");
+    }
+
+    public String getCity() {
+        return getValue("State and City");
     }
 }
