@@ -32,11 +32,11 @@ public class FormTest {
 
     @BeforeTest
     public void beforeTest(){
-        driver = SeleniumDrivers.getRemoteDriver();
+        driver = SeleniumDrivers.getAutoDriver();
     }
 
     @Test
-    public void formTest(){
+    public void formTest() throws InterruptedException {
         logger.info("Start Test");
         driver.get(URL);
         driver.manage().window().maximize();
@@ -51,7 +51,7 @@ public class FormTest {
         form.setHobby(hobby);
         form.setState(state);
         form.setCity(city);
-
+        form.Submit();
         newSubmitForm submitForm = new newSubmitForm(driver);
 
         String actualFirstName = submitForm.getFirstName();

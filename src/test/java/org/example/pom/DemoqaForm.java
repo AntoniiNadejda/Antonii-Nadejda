@@ -39,6 +39,12 @@ public class DemoqaForm {
     @FindBy(css ="#submit")
     WebElement submit;
 
+    public void scroll2Amount(int deltaY){
+        new Actions(driver)
+                .scrollByAmount(0, deltaY)
+                .perform();
+    }
+
 
     public DemoqaForm(WebDriver driverParam) {
         driver = driverParam;
@@ -85,9 +91,11 @@ public class DemoqaForm {
         new Actions(driver).scrollToElement(el).perform();
     }
 
-    public void setState(String stateParam){
+    public void setState(String stateParam) throws InterruptedException {
         WaitUtils.explicitWait(driver, ExpectedConditions.elementToBeClickable(state),10);
         scrollToElement(state);
+        scroll2Amount(250);
+        Thread.sleep(2000);
         state.click();
         driver.findElement(By.xpath("//*[text()='"+stateParam+"']")).click();
     }
