@@ -11,8 +11,8 @@ public class newSubmitForm {
         driver = driverParam;
     }
 
-    public String getValue(String nameParam){
-        return driver.findElement(By.xpath("//table//tr//td[text()='"+nameParam+"']/../td[2]")).getText();
+    public String getValue(String nameParam) {
+        return driver.findElement(By.xpath("//table//tr[td[1]='" + nameParam + "']/td[2]")).getText();
     }
     public String getFirstName() {
         return getValue("Student First Name");
@@ -22,7 +22,7 @@ public class newSubmitForm {
         return getValue("Student Last Name");
     }
 
-    public String getStudentEmail() {
+    public String getEmail() {
         return getValue("Student Email");
     }
 

@@ -62,7 +62,7 @@ public class FormTest {
         String expectedLastName = Last_Name;
         Assert.assertEquals(actualLastName, expectedLastName);
 
-        String actualEmail = submitForm.getStudentEmail();
+        String actualEmail = submitForm.getEmail();
         String expectedEmail = email;
         Assert.assertEquals(actualEmail, expectedEmail);
 
