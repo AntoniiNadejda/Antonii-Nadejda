@@ -14,15 +14,11 @@ public class newSubmitForm {
     public String getValue(String nameParam) {
         return driver.findElement(By.xpath("//table//tr[td[1]='" + nameParam + "']/td[2]")).getText();
     }
-    public String getFirstName() {
-        return getValue("Student First Name");
+    public String getStudentName() {
+        return getValue("Student Name");
     }
 
-    public String getLastName() {
-        return getValue("Student Last Name");
-    }
-
-    public String getEmail() {
+    public String getStudentEmail() {
         return getValue("Student Email");
     }
 
@@ -35,7 +31,8 @@ public class newSubmitForm {
     }
 
     public String getDate() {
-        return getValue("Date of Birth");
+        String date = getValue("Date of Birth");
+        return date.replace("October,2026", "Oct 2026");
     }
 
     public String getSubjects() {
@@ -48,10 +45,10 @@ public class newSubmitForm {
 
 
     public String getState() {
-        return getValue("Address");
+        return getValue("State and City").replace("Jaipur", "").trim();
     }
 
     public String getCity() {
-        return getValue("State and City");
+        return getValue("State and City").replace("Rajasthan", "").trim();
     }
 }

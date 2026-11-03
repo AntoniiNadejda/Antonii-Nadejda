@@ -54,15 +54,12 @@ public class FormTest {
         form.Submit();
         newSubmitForm submitForm = new newSubmitForm(driver);
 
-        String actualFirstName = submitForm.getFirstName();
-        String expectedFirstName = First_Name;
-        Assert.assertEquals(actualFirstName, expectedFirstName);
+        String actualName = submitForm.getStudentName();
+        String expectedName = First_Name+ " " + Last_Name;
+        Assert.assertEquals(actualName, expectedName);
 
-        String actualLastName = submitForm.getLastName();
-        String expectedLastName = Last_Name;
-        Assert.assertEquals(actualLastName, expectedLastName);
 
-        String actualEmail = submitForm.getEmail();
+        String actualEmail = submitForm.getStudentEmail();
         String expectedEmail = email;
         Assert.assertEquals(actualEmail, expectedEmail);
 
